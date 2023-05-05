@@ -5,6 +5,8 @@ let intervalo;
 let raio = 10;
 let pontuacao = 0
 let tempoJogo;
+let jogadores = [];
+
 
 pincel.strokeStyle = 'black';
 pincel.strokeRect(0, 0, 940, 400);
@@ -45,11 +47,6 @@ function atualizaTela() {
     desenhaCirculo(xAlvo, yAlvo, raio + 10, 'red');
     desenhaCirculo(xAlvo, yAlvo, raio, 'yellow');
 
-    // desenhaCirculo(470, 200, raio + 30, "#000000");
-    // desenhaCirculo(470, 200, raio + 20, '#3eaef4');
-    // desenhaCirculo(470, 200, raio + 10, 'red');
-    // desenhaCirculo(470, 200, raio, 'yellow');
-
     mudaTempo(velocidade());
 
 
@@ -67,8 +64,16 @@ function atualizaTela() {
 
             pontuacao++;
 
-            document.querySelector('.pontos').value = pontuacao;
+            for (let i = 0; i < jogadores.length; i++) {
 
+                player = {
+                    nome: jogadores[i],
+                    pontos: pontuacao,
+                };
+
+            };
+
+            exibirNaTela();
 
         }
 
@@ -92,34 +97,10 @@ function velocidade() {
 
 }
 
-function desafio() {
-
-}
-
-atualizaTela();
-
-
-
-// function aumenta() {
-//     mudaTempo(-0.2);
-// }
-
-// function diminui() {
-//     mudaTempo(+0.2);
-// }
-
-// function mudaTempo(muda) {
-//     velALvo = velALvo + muda;
-//     clearInterval(intervalo);
-//     intervalo = setInterval(atualizaTela, velALvo * 1000);
-
-// }
-
 
 // -------------------------------------------------------------------------
 
 
-let jogadores = [];
 
 function nomeJogador() {
 
@@ -144,6 +125,7 @@ function adicionarJogador() {
     }
 
     exibirNaTela();
+    atualizaTela();
 
 }
 
@@ -152,15 +134,13 @@ let tabelaElemento = document.getElementById("tabelaJogadores");
 function exibirNaTela() {
 
     tabelaElemento.innerHTML = `
- 
+        <br>
         <tr>
-          <td>${player.nome}</td>
-          <br>
-          <td>${player.pontos}</td>
-          
-          <td><button onClick="adicionarPontos(player)">Vitória</button></td>
-          
+            <td>${player.nome}</td>
+            <br>
+            <td>${player.pontos}</td>
         </tr>
+        <br>         
   
   `;
 }

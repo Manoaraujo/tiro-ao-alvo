@@ -1,0 +1,73 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #008a60;
+    /* background: url(imagens/gramado.jpg); */
+    color: white;
+
+}
+
+.caixa {
+    display: flex;
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+}
+
+canvas {
+    width: auto;
+    background: url(imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: url(imagens/Crosshairs.cur), auto;
+
+
+}
+
+.desafio,
+p {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+}
+
+.archer {
+    width: 10%;
+}
+
+
+.container {
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botoes {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#velocidade {
+
+    direction: rtl;
+
+}
+
+.pontos,
+.jogador {
+
+    text-align: left;
+    color: #fb1111;
+    /* border: none; */
+    background: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.score {
+
+    display: flexbox;
+    flex-direction: column;
+}

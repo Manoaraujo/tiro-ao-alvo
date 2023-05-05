@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tiro ao Alvo</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tiro ao alvo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="caixa">
+
+            <img class="archer" src="imagens/archer_e.png">
+            <h2 class="desafio">ENTÃO VOCÊ SE ACHA UM GRANDE ARQUEIRO?</h2>
+            <img class="archer" src="imagens/archer_d.png">
+
+
+            <!-- botoão aceitar o desafio:
+         perguntar o nome do jogador
+         add nome a score
+         inicia o alvo na tela -->
+
+
+        </div>
+
+        <p class="desafio"> Pois vamos testar as suas habilidades</p>
+
+        <input type="text" placeholder="Nome do desafiante" id="player">
+        <button id="btn desafio" onclick="adicionarJogador()">Começar o desafio!</button>
+        <!-- <button id="btn desafio" onclick="desafio()">Começar o desafio!</button> -->
+
+
+    </header>
+    <br>
+
+    <div class="container"><canvas width="940" height="400"></canvas>
+
+    </div>
+
+    <p>
+        Deixe mais ou menos desafiador
+    </p>
+    <!-- 
+    <div class="botoes">
+        <button id="rapido" onclick="aumenta()"> + velocidade</button>
+        <button id="lento" onclick="diminui()"> - velocidade</button>
+    </div> -->
+
+    <div>
+
+        <label for="velocidade">velocidade</label>
+
+        <input type="range" id="velocidade" class="velocidade" min="5" max="20" step="1" list="markers">
+
+    </div>
+    <!-- adicionar limite de tempo -->
+    <br>
+
+    <div class="score">
+
+        <!-- exibir pontos ao acertar -->
+        <!-- mostrar ranking -->
+
+        pontuação:
+        <br>
+        <input class="jogador">
+        jogador
+        <br>
+        <input class="pontos"> pontos
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Jogador</th>
+                    <th>Pontos</th>
+                </tr>
+            </thead>
+            <br>
+            <tbody id="tabelaJogadores">
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+</body>
+
+<script src="tiro ao alvo.js"></script>
+
+</html>

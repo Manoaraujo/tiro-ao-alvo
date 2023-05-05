@@ -4,9 +4,9 @@ let pincel = tela.getContext('2d');
 let intervalo;
 let raio = 10;
 let pontuacao = 0
-let tempoJogo;
 let jogadores = [];
-
+let branco;
+// let tempoJogo;
 
 pincel.strokeStyle = 'black';
 pincel.strokeRect(0, 0, 940, 400);
@@ -31,6 +31,7 @@ function posicao(maximo) {
         return posicaoMax;
 }
 
+
 function atualizaTela() {
 
 
@@ -49,7 +50,6 @@ function atualizaTela() {
 
     mudaTempo(velocidade());
 
-
     function dispara(evento) {
 
         var x = evento.pageX - tela.offsetLeft;
@@ -63,15 +63,6 @@ function atualizaTela() {
             (y < yAlvo + raio)) {
 
             pontuacao++;
-
-            for (let i = 0; i < jogadores.length; i++) {
-
-                player = {
-                    nome: jogadores[i],
-                    pontos: pontuacao,
-                };
-
-            };
 
             exibirNaTela();
 
@@ -87,7 +78,7 @@ function atualizaTela() {
 function mudaTempo(muda) {
 
     clearInterval(intervalo);
-    intervalo = setInterval(atualizaTela, muda * 100);
+    intervalo = setInterval(atualizaTela, muda * 500);
 
 }
 
@@ -97,10 +88,7 @@ function velocidade() {
 
 }
 
-
 // -------------------------------------------------------------------------
-
-
 
 function nomeJogador() {
 
@@ -113,6 +101,33 @@ function adicionarJogador() {
 
     jogadores.push(nomeJogador());
 
+    exibirNaTela();
+
+}
+
+
+function encriptar(stringEncriptada) {
+
+    let matrizCodigo = [['e', 'enter'], ['i', 'imes'], ['a', 'ai'], ['o', 'ober'], ['u', 'ufat']];
+
+    stringEncriptada = stringEncriptada.toLowerCase();
+
+    for (let i = 0; i < matrizCodigo.length; i++) {
+
+        if (stringEncriptada.includes(matrizCodigo[i][0])) {
+
+            stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
+        }
+    }
+
+    return stringEncriptada;
+
+}
+
+
+let tabelaElemento = document.getElementById("tabelaJogadores");
+
+function exibirNaTela() {
 
     for (let i = 0; i < jogadores.length; i++) {
 
@@ -124,15 +139,6 @@ function adicionarJogador() {
         document.querySelector("input").value = "";
     }
 
-    exibirNaTela();
-    atualizaTela();
-
-}
-
-let tabelaElemento = document.getElementById("tabelaJogadores");
-
-function exibirNaTela() {
-
     tabelaElemento.innerHTML = `
         <br>
         <tr>
@@ -140,9 +146,11 @@ function exibirNaTela() {
             <br>
             <td>${player.pontos}</td>
         </tr>
-        <br>         
-  
+
   `;
+
+    atualizaTela();
+
 }
 
 function adicionarPontos(jogador) {

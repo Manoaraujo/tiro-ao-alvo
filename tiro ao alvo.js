@@ -86,7 +86,7 @@ function mudaTempo(muda) {
 
 function velocidade() {
 
-    return document.querySelector(".velocidade").value;
+    return document.querySelector("#velocidade").value;
 
 }
 

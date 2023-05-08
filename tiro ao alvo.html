@@ -16,10 +16,10 @@
 <body>
 
     <header>
-        <div class="caixa">
+        <div class="caixa-titulo">
 
             <img class="archer" src="imagens/archer_e.png">
-            <h2 class="desafio">ENTÃO VOCÊ SE ACHA UM GRANDE ARQUEIRO?</h2>
+            <h2 class="txt-desafio">ENTÃO VOCÊ SE ACHA UM GRANDE ARQUEIRO?</h2>
             <img class="archer" src="imagens/archer_d.png">
 
 
@@ -33,13 +33,16 @@
 
         <p class="desafio"> Pois vamos testar as suas habilidades</p>
 
-        <input type="text" placeholder="Nome do desafiante" id="player">
-        <button id="btn desafio" onclick="adicionarJogador(gamer.value)">Começar o desafio!</button>
-        <!-- <button id="btn desafio" onclick="desafio()">Começar o desafio!</button> -->
+
+        <div class="entrada-jogador">
+
+            <input type="text" placeholder="Nome do desafiante" id="player">
+            <button class="btn-desafio" onclick="adicionarJogador(gamer.value)">Começar o desafio!</button>
+
+        </div>
 
 
     </header>
-    <br>
 
     <div class="container"><canvas width="940" height="400"></canvas>
 
@@ -54,7 +57,7 @@
 
         <label for="velocidade">velocidade</label>
 
-        <input type="range" id="velocidade" class="velocidade" min="1" max="3" step="1" list="values">
+        <input type="range" id="velocidade" class="range-vel" min="1" max="3" step="1" list="values">
 
         <datalist id="values">
             <option value="1" label="0.5s"></option>

@@ -5,7 +5,8 @@ let intervalo;
 let raio = 10;
 let pontuacao = 0
 let jogadores = [];
-const gamer = document.querySelector("input");
+
+
 // let tempoJogo;
 
 pincel.strokeStyle = 'black';
@@ -64,7 +65,7 @@ function atualizaTela() {
 
             pontuacao++;
 
-            exibirNaTela();
+            exibirNaTela(jogadores, pontuacao)
 
         }
 
@@ -74,6 +75,8 @@ function atualizaTela() {
 
 };
 
+//----------------------------------------------------------
+//   BLoco: altera velocidade alvo
 
 function mudaTempo(muda) {
 
@@ -88,28 +91,42 @@ function velocidade() {
 
 }
 
+
+
+function paraJogo() {
+
+    alert("vc tem 10s para fazer o seu melhor!");
+    setTimeout(clearInterval(intervalo), 10000);
+}
+
+
+
+
 // -------------------------------------------------------------------------
+// Bloco: adiciona jogador e pontos na tela
+
+const gamer = document.querySelector("input");
+const tabelaElemento = document.getElementById("tabelaJogadores");
 
 
 function adicionarJogador(nomePlayer) {
 
     jogadores.push(nomePlayer);
 
-    exibirNaTela();
+    pontuacao = 0;
 
-}
+    exibirNaTela(jogadores, pontuacao);
 
 
+} // função ativada no botão - HTML
 
-let tabelaElemento = document.getElementById("tabelaJogadores");
-
-function exibirNaTela() {
+function exibirNaTela(desafiante, pontos) {
 
     for (let i = 0; i < jogadores.length; i++) {
 
-        player = {
+        desafiante = {
             nome: jogadores[i],
-            pontos: pontuacao,
+            pontos: pontos,
         };
 
         document.querySelector("input").value = "";
@@ -118,19 +135,19 @@ function exibirNaTela() {
     tabelaElemento.innerHTML = `
         <br>
         <tr>
-            <td>${player.nome}</td>
+            <td>${desafiante.nome}</td>
             <br>
-            <td>${player.pontos}</td>
+            <td>${desafiante.pontos}</td>
         </tr>
 
   `;
 
     atualizaTela();
-
+ 
 }
 
-function adicionarPontos(jogador) {
-    jogador.pontos++;
-    exibirNaTela();
-}
+// function adicionarPontos(jogador) {
+//     jogador.pontos++;
+//     exibirNaTela(jogadores);
+// }
 

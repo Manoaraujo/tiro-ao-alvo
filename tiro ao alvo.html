@@ -34,7 +34,7 @@
         <p class="desafio"> Pois vamos testar as suas habilidades</p>
 
         <input type="text" placeholder="Nome do desafiante" id="player">
-        <button id="btn desafio" onclick="adicionarJogador()">Começar o desafio!</button>
+        <button id="btn desafio" onclick="adicionarJogador(gamer.value)">Começar o desafio!</button>
         <!-- <button id="btn desafio" onclick="desafio()">Começar o desafio!</button> -->
 
 
@@ -48,17 +48,21 @@
     <p>
         Deixe mais ou menos desafiador
     </p>
-    <!-- 
-    <div class="botoes">
-        <button id="rapido" onclick="aumenta()"> + velocidade</button>
-        <button id="lento" onclick="diminui()"> - velocidade</button>
-    </div> -->
+
 
     <div>
 
         <label for="velocidade">velocidade</label>
 
-        <input type="range" id="velocidade" class="velocidade" min="1" max="3" step="1" list="markers">
+        <input type="range" id="velocidade" class="velocidade" min="1" max="3" step="1" list="values">
+
+        <datalist id="values">
+            <option value="1" label="0.5s"></option>
+            <option value="2" label="1s"></option>
+            <option value="3" label="1.5s"></option>
+
+        </datalist>
+
 
     </div>
     <!-- adicionar limite de tempo -->

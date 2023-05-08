@@ -3,10 +3,9 @@ let tela = document.querySelector('canvas');
 let pincel = tela.getContext('2d');
 let intervalo;
 let raio = 10;
-let pontuacao = 0
-let jogadores = [];
-
-
+let pontuacao;
+const jogadores = [];
+const points = [];
 // let tempoJogo;
 
 pincel.strokeStyle = 'black';
@@ -113,8 +112,12 @@ function adicionarJogador(nomePlayer) {
 
     jogadores.push(nomePlayer);
 
-    pontuacao = 0;
+    if (isNaN(pontuacao) == false) {
 
+        points.push(pontuacao)
+    }
+
+    pontuacao = 0;
     exibirNaTela(jogadores, pontuacao);
 
 
@@ -143,7 +146,7 @@ function exibirNaTela(desafiante, pontos) {
   `;
 
     atualizaTela();
- 
+
 }
 
 // function adicionarPontos(jogador) {

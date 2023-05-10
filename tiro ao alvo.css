@@ -132,8 +132,16 @@ input[type="range"] {
     font-family: 'Press Start 2P', cursive;
 }
 
+.jogando {
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
 .score {
 
-    display: flexbox;
+    display: flex;
+    align-items: flex-end;
     flex-direction: column;
 }

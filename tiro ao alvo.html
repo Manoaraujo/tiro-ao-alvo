@@ -23,12 +23,6 @@
             <img class="archer" src="imagens/archer_d.png">
 
 
-            <!-- botoão aceitar o desafio:
-         perguntar o nome do jogador
-         add nome a score
-         inicia o alvo na tela -->
-
-
         </div>
 
         <p class="desafio"> Pois vamos testar as suas habilidades</p>
@@ -37,7 +31,8 @@
         <div class="entrada-jogador">
 
             <input type="text" placeholder="Nome do desafiante" id="player">
-            <button class="btn-desafio" onclick="adicionarJogador(gamer.value)">Começar o desafio!</button>
+            <button class="btn-desafio" value="inserir" onclick="adicionarJogador(gamer.value)">Começar o
+                desafio!</button>
 
         </div>
 
@@ -47,8 +42,6 @@
     <div class="container"><canvas width="940" height="400"></canvas>
 
     </div>
-
-
 
     <div class="dificuldade">
 
@@ -70,10 +63,27 @@
     <!-- adicionar limite de tempo -->
     <br>
 
+    <div class="jogando">
+        <h2>Em jogo</h2>
+        <br>
+        <table>
+            <thead>
+                <tr class="tituloTabela">
+                    <th>Desafiante</th>
+                    <th>Pontos</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaJogadores">
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <br>
     <div class="score">
 
-        <!-- mostrar ranking -->
-
+        <h2>Ranking</h2>
         <table>
             <thead>
                 <tr class="tituloTabela">
@@ -81,14 +91,15 @@
                     <th>Pontos</th>
                 </tr>
             </thead>
-
-            <tbody id="tabelaJogadores">
+            <tbody id="tabelaRanking">
             </tbody>
 
 
         </table>
 
+
     </div>
+
 
 </body>
 

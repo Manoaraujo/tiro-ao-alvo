@@ -6,6 +6,8 @@ let raio = 10;
 let pontuacao;
 const jogadores = [];
 const points = [];
+let x = -1
+let i = -1
 // let tempoJogo;
 
 pincel.strokeStyle = 'black';
@@ -90,7 +92,7 @@ function velocidade() {
 
 }
 
-
+// Bloco: Timer jogo
 
 function paraJogo() {
 
@@ -106,6 +108,7 @@ function paraJogo() {
 
 const gamer = document.querySelector("input");
 const tabelaElemento = document.getElementById("tabelaJogadores");
+const ranking = document.getElementById("tabelaRanking");
 
 
 function adicionarJogador(nomePlayer) {
@@ -115,11 +118,11 @@ function adicionarJogador(nomePlayer) {
     if (isNaN(pontuacao) == false) {
 
         points.push(pontuacao)
+        exibirNovoJogador(jogadores);
     }
 
     pontuacao = 0;
-    exibirNaTela(jogadores, pontuacao);
-
+    exibirNaTela(jogadores, pontuacao)
 
 } // função ativada no botão - HTML
 
@@ -148,9 +151,28 @@ function exibirNaTela(desafiante, pontos) {
     atualizaTela();
 
 }
+function exibirNovoJogador(desafiante) {
 
-// function adicionarPontos(jogador) {
-//     jogador.pontos++;
-//     exibirNaTela(jogadores);
-// }
+    i++
+
+    desafiante = {
+        nome: jogadores[i],
+        pontos: points[i],
+    };
+
+    document.querySelector("input").value = "";
+
+    ranking.innerHTML += `
+        <br>
+        <tr>
+            <td>${desafiante.nome}</td>
+            <br>
+            <td>${desafiante.pontos}</td>
+        </tr>
+
+  `;
+
+    atualizaTela();
+
+}
 

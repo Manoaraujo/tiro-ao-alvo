@@ -3,7 +3,6 @@ body {
     background: #008a60;
     /* background: url(imagens/gramado.jpg); */
     color: white;
-    /* transform: scale(0.9); */
 
 }
 
@@ -41,35 +40,9 @@ body {
 .entrada-jogador {
     display: flex;
     flex-direction: row;
-    position: relative;
-    left: 35%;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 20px;
-    margin: 20px;
-    transform: scale(1.3);
-}
-
-
-.timer {
-    color: bisque;
-    display: flex;
-    position: absolute;
-    top: 15.5%;
-    left: 55%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    transform: scale(1.1);
-
-}
-
-
-
-.desafiante {
-    background: #36b38d;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
+    margin: 15px
 }
 
 .btn-desafio {
@@ -121,12 +94,14 @@ canvas {
 
 }
 
-input[type="range"] {
 
-    width: 200px;
-    margin: 1%;
+.tituloTabela {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+
 }
-
 
 /* 
 datalist {
@@ -138,18 +113,14 @@ datalist {
 } */
 
 
+input[type="range"] {
+    width: 200px;
+    margin: 0;
+}
+
 
 
 /* **** SCORE **** */
-
-.tituloTabela {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-
-}
-
 
 .pontos,
 .jogador {
@@ -162,34 +133,15 @@ datalist {
 }
 
 .jogando {
-    display: inline-flex;
-    position: absolute;
-    top: 93%;
-    left: 25%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
 
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
 
 .score {
-    display: inline-flex;
-    position: absolute;
-    top: 93%;
-    right: 25%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
 
-.tituloTabela {
-    margin: 10px;
-}
-
-.areaPontos {
     display: flex;
-    position: relative;
-    flex-direction: row;
-    align-items: center;
-
+    align-items: flex-end;
+    flex-direction: column;
 }

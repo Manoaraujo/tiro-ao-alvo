@@ -92,16 +92,49 @@ function velocidade() {
 
 }
 
+
 // Bloco: Timer jogo
 
-function paraJogo() {
 
-    alert("vc tem 10s para fazer o seu melhor!");
-    setTimeout(clearInterval(intervalo), 10000);
+function iniciar(duration) {
+
+    duration
+    display = document.querySelector('.timer');
+    startTimer(duration);
+
+};
+
+
+function startTimer(duration) {
+
+    var timer = duration;
+
+    alert("Você tem " + duration + "s , boa partida!")
+
+
+    let x = setInterval(function () {
+
+        seconds = parseInt(timer % 60, 10);
+        seconds = seconds < 10 ? "Tempo restante: 0" + seconds : "Tempo restante: " + seconds;
+
+        display.textContent = seconds;
+
+        if (--timer < 0) {
+            clearInterval(x);
+
+            display.textContent = "O seu tempo acabou!"
+
+            if (isNaN(pontuacao) == false) {
+
+                points.push(pontuacao)
+
+                exibirNovoJogador(jogadores);
+            }
+
+        }
+    }, 1000);
+
 }
-
-
-
 
 // -------------------------------------------------------------------------
 // Bloco: adiciona jogador e pontos na tela
@@ -115,11 +148,11 @@ function adicionarJogador(nomePlayer) {
 
     jogadores.push(nomePlayer);
 
-    if (isNaN(pontuacao) == false) {
+    // if (isNaN(pontuacao) == false) {
 
-        points.push(pontuacao)
-        exibirNovoJogador(jogadores);
-    }
+    //     points.push(pontuacao)
+    //     exibirNovoJogador(jogadores);
+    // }
 
     pontuacao = 0;
     exibirNaTela(jogadores, pontuacao)
@@ -172,7 +205,7 @@ function exibirNovoJogador(desafiante) {
 
   `;
 
-    atualizaTela();
+    // atualizaTela();
 
 }
 

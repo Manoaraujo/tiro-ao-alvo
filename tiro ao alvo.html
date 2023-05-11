@@ -30,11 +30,14 @@
 
         <div class="entrada-jogador">
 
-            <input type="text" placeholder="Nome do desafiante" id="player">
-            <button class="btn-desafio" value="inserir" onclick="adicionarJogador(gamer.value)">Começar o
+            <input class="desafiante" type="text" placeholder="Nome do desafiante" id="player">
+            <button class="btn-desafio" value="inserir" onclick="adicionarJogador(gamer.value); iniciar(15)">Começar o
                 desafio!</button>
 
         </div>
+
+
+        <div class="timer"></div>
 
 
     </header>
@@ -47,25 +50,21 @@
 
         <p> Deixe mais ou menos desafiador </p>
 
-        <label for="velocidade">velocidade</label>
+        <label class="dificuldade" for="velocidade">velocidade</label>
 
         <input type="range" id="velocidade" class="range-vel" min="1" max="3" step="1" list="values">
-
+        <!-- 
         <datalist id="values">
             <option value="1" label="0.5s"></option>
             <option value="2" label="1s"></option>
             <option value="3" label="1.5s"></option>
 
-        </datalist>
-
+        </datalist> -->
 
     </div>
-    <!-- adicionar limite de tempo -->
-    <br>
 
     <div class="jogando">
         <h2>Em jogo</h2>
-        <br>
         <table>
             <thead>
                 <tr class="tituloTabela">
@@ -80,10 +79,12 @@
 
     </div>
 
+
     <br>
     <div class="score">
 
         <h2>Ranking</h2>
+
         <table>
             <thead>
                 <tr class="tituloTabela">
@@ -100,7 +101,7 @@
 
     </div>
 
-
+    <!-- </div> -->
 </body>
 
 <script src="tiro ao alvo.js"></script>

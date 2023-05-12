@@ -120,9 +120,12 @@ function startTimer(duration) {
         display.textContent = seconds;
 
         if (--timer < 0) {
+
             clearInterval(x);
 
             display.textContent = "O seu tempo acabou!"
+            alert("Seu tempo acabou! Agora é a vez do proximo desafiante.")
+            clearInterval(intervalo);
 
             if (isNaN(pontuacao) == false) {
 

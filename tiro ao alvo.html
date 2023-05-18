@@ -1,109 +1,102 @@
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tiro ao Alvo</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="tiro ao alvo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="tiro ao alvo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-
-
-</head>
-
-<body>
-
+  <body>
     <header>
-        <div class="caixa-titulo">
-
-            <img class="archer" src="imagens/archer_e.png">
-            <h2 class="txt-desafio">ENTÃO VOCÊ SE ACHA UM GRANDE ARQUEIRO?</h2>
-            <img class="archer" src="imagens/archer_d.png">
-
-
-        </div>
-
-        <p class="desafio"> Pois vamos testar as suas habilidades</p>
+      <div class="caixa-titulo">
+        <img class="archer" src="imagens/archer_e.png" />
+        <h2 class="txt-desafio">ENTÃO VOCÊ SE ACHA UM GRANDE ARQUEIRO?</h2>
+        <img class="archer" src="imagens/archer_d.png" />
+        <p class="desafio">Pois vamos testar as suas habilidades</p>
+      </div>
 
 
-        <div class="entrada-jogador">
-
-            <input class="desafiante" type="text" placeholder="Nome do desafiante" id="player">
-            <button class="btn-desafio" value="inserir" onclick="adicionarJogador(gamer.value); iniciar(15)">Começar o
-                desafio!</button>
-
-        </div>
-
-
-        <div class="timer"></div>
-
+      <div class="entrada-jogador">
+        <input
+          class="desafiante"
+          type="text"
+          placeholder="Nome do desafiante"
+          id="player"
+        />
+        <button
+          class="btn-desafio"
+          value="inserir"
+          onclick="adicionarJogador(gamer.value); iniciar(15)"
+        >
+          Começar o desafio!
+        </button>
+      </div>
+      <div class="timer"></div>
 
     </header>
 
-    <div class="container"><canvas width="940" height="400"></canvas>
-
-    </div>
+    <div class="container"><canvas width="940" height="400"></canvas></div>
 
     <div class="dificuldade">
+      <p>Deixe mais ou menos desafiador</p>
+      <label class="txt-vel" for="velocidade">velocidade</label>
 
-        <p> Deixe mais ou menos desafiador </p>
-
-        <label class="dificuldade" for="velocidade">velocidade</label>
-
-        <input type="range" id="velocidade" class="range-vel" min="1" max="3" step="1" list="values">
-        <!-- 
-        <datalist id="values">
-            <option value="1" label="0.5s"></option>
-            <option value="2" label="1s"></option>
-            <option value="3" label="1.5s"></option>
-
-        </datalist> -->
-
+      <input
+        type="range"
+        id="velocidade"
+        class="range-vel"
+        min="1"
+        max="3"
+        step="1"
+        list="values"
+      />
     </div>
 
     <div class="jogando">
-        <h2>Em jogo</h2>
-        <table>
-            <thead>
-                <tr class="tituloTabela">
-                    <th>Desafiante</th>
-                    <th>Pontos</th>
-                </tr>
-            </thead>
-            <tbody id="tabelaJogadores">
-            </tbody>
-
-        </table>
-
+      <h2>Jogando</h2>
+      <table>
+        <thead>
+          <tr class="tituloTabela">
+            <th>Jogador</th>
+            <th>Pontos</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaJogadores"></tbody>
+      </table>
     </div>
 
-
-    <br>
+    <br />
     <div class="score">
+      <h2>Ranking</h2>
 
-        <h2>Ranking</h2>
-
-        <table>
-            <thead>
-                <tr class="tituloTabela">
-                    <th>Jogador</th>
-                    <th>Pontos</th>
-                </tr>
-            </thead>
-            <tbody id="tabelaRanking">
-            </tbody>
-
-
-        </table>
-
-
+      <table>
+        <thead>
+          <tr class="tituloTabela">
+            <th>Jogador</th>
+            <th>Pontos</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaRanking"></tbody>
+      </table>
     </div>
 
-    <!-- </div> -->
-</body>
+    <footer clas="gramado-base">
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/germano-araujo/">linkedin</a>
+        </li>
+        <li><a href="https://github.com/Manoaraujo">github</a></li>
+      </ul>
+      
+      <img class="logo" src="imagens/logo-mano.png" alt="footer" />
+    </footer>
+  </body>
 
-<script src="tiro ao alvo.js"></script>
-
+  <script src="tiro ao alvo.js"></script>
 </html>

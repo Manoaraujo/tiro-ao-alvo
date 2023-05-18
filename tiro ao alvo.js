@@ -1,180 +1,147 @@
-
-let tela = document.querySelector('canvas');
-let pincel = tela.getContext('2d');
-let intervalo;
-let raio = 10;
-let pontuacao;
-const jogadores = [];
-const points = [];
+let tela = document.querySelector("canvas")
+let pincel = tela.getContext("2d")
+let intervalo
+let raio = 10
+let pontuacao
+const jogadores = []
+const points = []
 let x = -1
 let i = -1
-// let tempoJogo;
 
-pincel.strokeStyle = 'black';
-pincel.strokeRect(0, 0, 940, 400);
-
+pincel.strokeStyle = "black"
+pincel.strokeRect(0, 0, 940, 400)
 
 function desenhaCirculo(x, y, raio, cor) {
-
-
-    pincel.fillStyle = cor;
-    pincel.beginPath();
-    pincel.arc(x, y, raio, 0, 2 * Math.PI);
-    pincel.fill();
-
+  pincel.fillStyle = cor
+  pincel.beginPath()
+  pincel.arc(x, y, raio, 0, 2 * Math.PI)
+  pincel.fill()
 }
 
 function posicao(maximo) {
+  let posicaoMax = Math.floor(Math.random() * maximo)
 
-    let posicaoMax = Math.floor(Math.random() * maximo);
-
-    if (posicaoMax > 40)
-
-        return posicaoMax;
+  if (posicaoMax > 40) return posicaoMax
 }
 
-
 function atualizaTela() {
+  pincel.clearRect(0, 0, 940, 400)
+  pincel.strokeStyle = "black"
+  pincel.strokeRect(0, 0, 940, 400)
 
+  let xAlvo = posicao(900)
+  let yAlvo = posicao(360)
+  // console.log(xAlvo, yAlvo);
 
-    pincel.clearRect(0, 0, 940, 400);
-    pincel.strokeStyle = 'black';
-    pincel.strokeRect(0, 0, 940, 400);
+  desenhaCirculo(xAlvo, yAlvo, raio + 30, "#000000")
+  desenhaCirculo(xAlvo, yAlvo, raio + 20, "#3eaef4")
+  desenhaCirculo(xAlvo, yAlvo, raio + 10, "red")
+  desenhaCirculo(xAlvo, yAlvo, raio, "yellow")
 
-    let xAlvo = posicao(900);
-    let yAlvo = posicao(360);
-    // console.log(xAlvo, yAlvo);
+  mudaTempo(velocidade())
 
-    desenhaCirculo(xAlvo, yAlvo, raio + 30, "#000000");
-    desenhaCirculo(xAlvo, yAlvo, raio + 20, '#3eaef4');
-    desenhaCirculo(xAlvo, yAlvo, raio + 10, 'red');
-    desenhaCirculo(xAlvo, yAlvo, raio, 'yellow');
+  function dispara(evento) {
+    var x = evento.pageX - tela.offsetLeft
+    var y = evento.pageY - tela.offsetTop
 
-    mudaTempo(velocidade());
+    console.log("x=" + x + ";" + "y=" + y)
 
-    function dispara(evento) {
+    if (
+      x > xAlvo - raio &&
+      x < xAlvo + raio &&
+      y > yAlvo - raio &&
+      y < yAlvo + raio
+    ) {
+      pontuacao++
 
-        var x = evento.pageX - tela.offsetLeft;
-        var y = evento.pageY - tela.offsetTop;
-
-        console.log("x=" + x + ";" + "y=" + y)
-
-        if ((x > xAlvo - raio) &&
-            (x < xAlvo + raio) &&
-            (y > yAlvo - raio) &&
-            (y < yAlvo + raio)) {
-
-            pontuacao++;
-
-            exibirNaTela(jogadores, pontuacao)
-
-        }
-
+      exibirNaTela(jogadores, pontuacao)
     }
+  }
 
-    tela.onclick = dispara;
-
-};
+  tela.onclick = dispara
+}
 
 //----------------------------------------------------------
 //   BLoco: altera velocidade alvo
 
 function mudaTempo(muda) {
-
-    clearInterval(intervalo);
-    intervalo = setInterval(atualizaTela, muda * 500);
-
+  clearInterval(intervalo)
+  intervalo = setInterval(atualizaTela, muda * 500)
 }
 
 function velocidade() {
-
-    return document.querySelector(".range-vel").value;
-
+  return document.querySelector(".range-vel").value
 }
-
 
 // Bloco: Timer jogo
 
-
 function iniciar(duration) {
-
-    duration
-    display = document.querySelector('.timer');
-    startTimer(duration);
-
-};
-
+  duration
+  display = document.querySelector(".timer")
+  startTimer(duration)
+}
 
 function startTimer(duration) {
+  var timer = duration
 
-    var timer = duration;
+  alert("Você tem " + duration + "s , boa partida!")
 
-    alert("Você tem " + duration + "s , boa partida!")
+  let x = setInterval(function () {
+    seconds = parseInt(timer % 60, 10)
+    seconds =
+      seconds < 10
+        ? "Tempo restante: 0" + seconds
+        : "Tempo restante: " + seconds
 
+    display.textContent = seconds
 
-    let x = setInterval(function () {
+    if (--timer < 0) {
+      clearInterval(x)
 
-        seconds = parseInt(timer % 60, 10);
-        seconds = seconds < 10 ? "Tempo restante: 0" + seconds : "Tempo restante: " + seconds;
+      display.textContent = "O seu tempo acabou!"
+      alert("Seu tempo acabou! Agora é a vez do proximo desafiante.")
+      clearInterval(intervalo)
 
-        display.textContent = seconds;
+      if (isNaN(pontuacao) == false) {
+        points.push(pontuacao)
 
-        if (--timer < 0) {
-
-            clearInterval(x);
-
-            display.textContent = "O seu tempo acabou!"
-            alert("Seu tempo acabou! Agora é a vez do proximo desafiante.")
-            clearInterval(intervalo);
-
-            if (isNaN(pontuacao) == false) {
-
-                points.push(pontuacao)
-
-                exibirNovoJogador(jogadores);
-            }
-
-        }
-    }, 1000);
-
+        exibirNovoJogador(jogadores)
+      }
+    }
+  }, 1000)
 }
 
 // -------------------------------------------------------------------------
 // Bloco: adiciona jogador e pontos na tela
 
-const gamer = document.querySelector("input");
-const tabelaElemento = document.getElementById("tabelaJogadores");
-const ranking = document.getElementById("tabelaRanking");
-
+const gamer = document.querySelector("input")
+const tabelaElemento = document.getElementById("tabelaJogadores")
+const ranking = document.getElementById("tabelaRanking")
 
 function adicionarJogador(nomePlayer) {
+  jogadores.push(nomePlayer)
 
-    jogadores.push(nomePlayer);
+  // if (isNaN(pontuacao) == false) {
 
-    // if (isNaN(pontuacao) == false) {
+  //     points.push(pontuacao)
+  //     exibirNovoJogador(jogadores);
+  // }
 
-    //     points.push(pontuacao)
-    //     exibirNovoJogador(jogadores);
-    // }
-
-    pontuacao = 0;
-    exibirNaTela(jogadores, pontuacao)
-
+  pontuacao = 0
+  exibirNaTela(jogadores, pontuacao)
 } // função ativada no botão - HTML
 
 function exibirNaTela(desafiante, pontos) {
-
-    for (let i = 0; i < jogadores.length; i++) {
-
-        desafiante = {
-            nome: jogadores[i],
-            pontos: pontos,
-        };
-
-        document.querySelector("input").value = "";
+  for (let i = 0; i < jogadores.length; i++) {
+    desafiante = {
+      nome: jogadores[i],
+      pontos: pontos,
     }
 
-    tabelaElemento.innerHTML = `
+    document.querySelector("input").value = ""
+  }
+
+  tabelaElemento.innerHTML = `
         <br>
         <tr>
             <td>${desafiante.nome}</td>
@@ -182,23 +149,21 @@ function exibirNaTela(desafiante, pontos) {
             <td>${desafiante.pontos}</td>
         </tr>
 
-  `;
+  `
 
-    atualizaTela();
-
+  atualizaTela()
 }
 function exibirNovoJogador(desafiante) {
+  i++
 
-    i++
+  desafiante = {
+    nome: jogadores[i],
+    pontos: points[i],
+  }
 
-    desafiante = {
-        nome: jogadores[i],
-        pontos: points[i],
-    };
+  document.querySelector("input").value = ""
 
-    document.querySelector("input").value = "";
-
-    ranking.innerHTML += `
+  ranking.innerHTML += `
         <br>
         <tr>
             <td>${desafiante.nome}</td>
@@ -206,9 +171,5 @@ function exibirNovoJogador(desafiante) {
             <td>${desafiante.pontos}</td>
         </tr>
 
-  `;
-
-    // atualizaTela();
-
+  `
 }
-

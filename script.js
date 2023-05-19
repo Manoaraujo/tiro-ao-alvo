@@ -8,8 +8,8 @@ const points = []
 let x = -1
 let i = -1
 
-pincel.strokeStyle = "black"
-pincel.strokeRect(0, 0, 940, 380)
+pincel.strokeStyle = ""
+pincel.strokeRect(0, 0, 870, 350)
 
 function desenhaCirculo(x, y, raio, cor) {
   pincel.fillStyle = cor
@@ -25,12 +25,12 @@ function posicao(maximo) {
 }
 
 function atualizaTela() {
-  pincel.clearRect(0, 0, 940, 380)
+  pincel.clearRect(0, 0, 870, 350)
   pincel.strokeStyle = "black"
-  pincel.strokeRect(0, 0, 940, 380)
+  pincel.strokeRect(0, 0, 870, 350)
 
-  let xAlvo = posicao(900)
-  let yAlvo = posicao(360)
+  let xAlvo = posicao(830)
+  let yAlvo = posicao(310)
   // console.log(xAlvo, yAlvo);
 
   desenhaCirculo(xAlvo, yAlvo, raio + 30, "#000000")

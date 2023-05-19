@@ -1,8 +1,8 @@
 body {
   font-family: "Press Start 2P", cursive;
   position: absolute;
-  width: 1645px;
-  height: 760px;
+  width: 1480px;
+  height: 715px;
   background-image: url(imagens/gramado4.png);
   color: rgb(54, 130, 27);
 }
@@ -17,7 +17,7 @@ body {
   display: flex;
   position: absolute;
   top: 10px;
-  left: 390px;
+  left: 337px;
   width: auto;
   margin: 0 auto;
   justify-content: center;
@@ -47,7 +47,7 @@ body {
   flex-direction: row;
   position: absolute;
   top: 118px;
-  left: 200px;
+  left: 168px;
   justify-content: flex-start;
   gap: 20px;
   transform: scale(1.5);
@@ -58,7 +58,7 @@ body {
   display: flex;
   position: absolute;
   top: 118px;
-  left: 680px;
+  left: 610px;
   flex-direction: column;
   transform: scale(1.1);
 }
@@ -67,7 +67,7 @@ body {
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
   text-align: center;
-  width: 190px;
+  width: 150px;
   background: #24c958;
   color: #ffffff;
   border: none;
@@ -76,11 +76,11 @@ body {
 
 input::placeholder {
   font-family: "Press Start 2P", cursive;
-  font-size: 10px;
+  font-size: 8px;
   color: rgb(183, 239, 151);
   position: absolute;
-  top: 2.5px;
-  left: 11px;
+  top: 3px;
+  left: 9px;
   opacity: 75%;
 }
 
@@ -99,9 +99,9 @@ input::placeholder {
 canvas {
   position: absolute;
   top: 155px;
-  left: 95px;
-  width: 940px;
-  height: 380px;
+  left: 65px;
+  width: 870px;
+  /* height: 340px; */
   background: url(imagens/campo_alvo.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -196,16 +196,16 @@ th {
 
 footer {
   position: absolute;
-  bottom: -34.5px;
-  width: 1660px;
-  height: 250px;
+  bottom: 0px;
+  width: 1495px;
+  height: 170px;
   background: url(imagens/footer.png);
 }
 
 footer ul {
   position: absolute;
   bottom: 7px;
-  right: 710px;
+  right: 572px;
   display: flex;
   gap: 20px;
 }
@@ -217,7 +217,7 @@ footer a {
 
 .logo {
   position: absolute;
-  right: 765;
+  right: 635px;
   bottom: 35px;
   width: 120px;
   height: 100px;
@@ -229,8 +229,8 @@ footer a {
   position: absolute;
   width: 400px;
   height: 211px;
-  top: 250px;
-  left: 389px;
+  top: 222px;
+  left: 292px;
   box-sizing: border-box;
   text-align: center;
 }

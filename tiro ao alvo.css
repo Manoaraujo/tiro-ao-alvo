@@ -47,7 +47,7 @@ body {
   flex-direction: row;
   position: absolute;
   top: 118px;
-  left: 250px;
+  left: 200px;
   justify-content: flex-start;
   gap: 20px;
   transform: scale(1.5);
@@ -64,6 +64,10 @@ body {
 }
 
 .desafiante {
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  text-align: center;
+  width: 190px;
   background: #24c958;
   color: #ffffff;
   border: none;
@@ -71,20 +75,23 @@ body {
 }
 
 input::placeholder {
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
   color: rgb(183, 239, 151);
   position: absolute;
-  top: 0px;
-  left: 25px;
+  top: 2.5px;
+  left: 11px;
   opacity: 75%;
 }
 
 .btn-desafio {
+  font-family: "Press Start 2P", cursive;
   background-color: rgb(24, 111, 6);
   color: #d3e3c5;
   border: none;
   border-radius: 10px;
   text-align: center;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 /* **** AREA ALVO *** */
@@ -95,10 +102,11 @@ canvas {
   left: 95px;
   width: 940px;
   height: 380px;
-  background: url(imagens/fundo.jpg);
+  background: url(imagens/campo_alvo.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border: none;
   cursor: url(imagens/Crosshairs.cur), auto;
 }
 
@@ -130,6 +138,7 @@ canvas {
   align-items: center;
   gap: 20px;
   direction: rtl;
+  background-color: #24c958;
 }
 
 input[type="range"] {
@@ -212,4 +221,36 @@ footer a {
   bottom: 35px;
   width: 120px;
   height: 100px;
+}
+#ready {
+  display: none;
+  background: url(imagens/placa.png);
+  background-size: contain;
+  position: absolute;
+  width: 400px;
+  height: 211px;
+  top: 250px;
+  left: 389px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#ready .btn {
+  font-family: "Press Start 2P", cursive;
+  border: none;
+  background: none;
+  color: rgb(88, 63, 5);
+  position: relative;
+  top: 75px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#ready .message {
+  padding-left: 33px;
+  font-family: "Press Start 2P", cursive;
+  color: rgb(148, 56, 11);
+  position: relative;
+  top: 47px;
+  left: -13px;
+  line-height: 19px;
+  text-align: center;
 }

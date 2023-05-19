@@ -9,7 +9,7 @@ let x = -1
 let i = -1
 
 pincel.strokeStyle = "black"
-pincel.strokeRect(0, 0, 940, 400)
+pincel.strokeRect(0, 0, 940, 380)
 
 function desenhaCirculo(x, y, raio, cor) {
   pincel.fillStyle = cor
@@ -25,9 +25,9 @@ function posicao(maximo) {
 }
 
 function atualizaTela() {
-  pincel.clearRect(0, 0, 940, 400)
+  pincel.clearRect(0, 0, 940, 380)
   pincel.strokeStyle = "black"
-  pincel.strokeRect(0, 0, 940, 400)
+  pincel.strokeRect(0, 0, 940, 380)
 
   let xAlvo = posicao(900)
   let yAlvo = posicao(360)
@@ -84,7 +84,7 @@ function iniciar(duration) {
 function startTimer(duration) {
   var timer = duration
 
-  alert("Você tem " + duration + "s , boa partida!")
+  // alert("Você tem " + duration + "s , boa partida!")
 
   let x = setInterval(function () {
     seconds = parseInt(timer % 60, 10)
@@ -99,14 +99,14 @@ function startTimer(duration) {
       clearInterval(x)
 
       display.textContent = "O seu tempo acabou!"
-      alert("Seu tempo acabou! Agora é a vez do proximo desafiante.")
+      // alert("Seu tempo acabou! Agora é a vez do proximo desafiante.")
       clearInterval(intervalo)
+      placaFim()
+      // if (isNaN(pontuacao) == false) {
+      //   points.push(pontuacao)
 
-      if (isNaN(pontuacao) == false) {
-        points.push(pontuacao)
-
-        exibirNovoJogador(jogadores)
-      }
+      //   exibirNovoJogador(jogadores)
+      // }
     }
   }, 1000)
 }
@@ -120,12 +120,6 @@ const ranking = document.getElementById("tabelaRanking")
 
 function adicionarJogador(nomePlayer) {
   jogadores.push(nomePlayer)
-
-  // if (isNaN(pontuacao) == false) {
-
-  //     points.push(pontuacao)
-  //     exibirNovoJogador(jogadores);
-  // }
 
   pontuacao = 0
   exibirNaTela(jogadores, pontuacao)
@@ -172,4 +166,40 @@ function exibirNovoJogador(desafiante) {
         </tr>
 
   `
+}
+
+function placaInicio(duration, done) {
+  var box = $("#ready")
+  box.find(".message").text("Você tem " + duration + "s , boa partida!")
+  box
+    .find(".btn")
+    .unbind()
+    .click(function () {
+      box.hide()
+      adicionarJogador(gamer.value)
+      iniciar(duration)
+    })
+  box.find(".btn").click(done)
+  box.show()
+}
+
+function placaFim(done) {
+  var box = $("#ready")
+  box
+    .find(".message")
+    .text("Seu tempo acabou! Agora é a vez do proximo desafiante.")
+  box
+    .find(".btn")
+    .unbind()
+    .click(function () {
+      box.hide()
+
+      if (isNaN(pontuacao) == false) {
+        points.push(pontuacao)
+
+        exibirNovoJogador(jogadores)
+      }
+    })
+  box.find(".btn").click(done)
+  box.show()
 }

@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -18,9 +20,8 @@
         <img class="archer" src="imagens/archer_e.png" />
         <h2 class="txt-desafio">ENTÃO VOCÊ SE ACHA UM GRANDE ARQUEIRO?</h2>
         <img class="archer" src="imagens/archer_d.png" />
-        <p class="desafio">Pois vamos testar as suas habilidades</p>
+        <p class="desafio">Pois vamos testar as suas habilidades!</p>
       </div>
-
 
       <div class="entrada-jogador">
         <input
@@ -29,19 +30,14 @@
           placeholder="Nome do desafiante"
           id="player"
         />
-        <button
-          class="btn-desafio"
-          value="inserir"
-          onclick="adicionarJogador(gamer.value); iniciar(15)"
-        >
+        <button class="btn-desafio" value="inserir" onclick=" placaInicio(15)">
           Começar o desafio!
         </button>
       </div>
       <div class="timer"></div>
-
     </header>
 
-    <div class="container"><canvas width="940" height="400"></canvas></div>
+    <div class="container"><canvas width="940" height="380"></canvas></div>
 
     <div class="dificuldade">
       <p>Deixe mais ou menos desafiador</p>
@@ -89,13 +85,21 @@
     <footer clas="gramado-base">
       <ul>
         <li>
-          <a href="https://www.linkedin.com/in/germano-araujo/">linkedin</a>
+          <a href="https://www.linkedin.com/in/germano-araujo/" target="_blank"
+            >linkedin</a
+          >
         </li>
-        <li><a href="https://github.com/Manoaraujo">github</a></li>
+        <li>
+          <a href="https://github.com/Manoaraujo" target="_blank">github</a>
+        </li>
       </ul>
-      
+
       <img class="logo" src="imagens/logo-mano.png" alt="footer" />
     </footer>
+    <div id="ready">
+      <div class="message"></div>
+      <button class="btn">OK!</button>
+    </div>
   </body>
 
   <script src="tiro ao alvo.js"></script>
